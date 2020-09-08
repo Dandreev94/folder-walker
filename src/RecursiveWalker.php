@@ -67,12 +67,15 @@ class RecursiveWalker
     {
         $this->displayMessage("Hey, can you enter absolute path to your dir?\n");
         $pathToDir = (string) trim(fgets(STDIN));
+
         if (!$pathToDir) {
             throw new InvalidArgumentException('You forgot enter the path, please enter it!');
         }
+
         if (!file_exists($pathToDir)) {
             throw new ErrorException('Sorry, this dir does not exist, please enter new path to dir!');
         }
+
         $this->rootDir = $pathToDir;
     }
 
