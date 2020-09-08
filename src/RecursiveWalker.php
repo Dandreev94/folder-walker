@@ -46,11 +46,11 @@ class RecursiveWalker
     public function walk()
     {
         $this->initDir();
-        $this->displayMessage("Great! Let's find some counts!\n");
+        $this->displayMessage("Great! Let's find some counts!");
 
         $this->lookIntoFolder();
-        $this->displayMessage("This folder contains {$this->counter} files.\n");
-        $this->displayMessage("The sum of these files is {$this->sum}.\n");
+        $this->displayMessage("This folder contains {$this->counter} files.");
+        $this->displayMessage("The sum of these files is {$this->sum}.");
     }
 
     protected function initDir()
@@ -77,7 +77,7 @@ class RecursiveWalker
      */
     protected function validateAndSetDir()
     {
-        $this->displayMessage("Hey, can you enter absolute path to your dir?\n");
+        $this->displayMessage("Hey, can you enter absolute path to your dir?");
         $pathToDir = (string) trim(fgets(STDIN));
 
         if (!$pathToDir) {
@@ -137,6 +137,6 @@ class RecursiveWalker
      */
     protected function displayMessage(string $msg)
     {
-        fwrite(STDOUT, $msg);
+        fwrite(STDOUT, $msg . "\n");
     }
 }
