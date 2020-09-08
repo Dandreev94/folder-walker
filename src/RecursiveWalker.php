@@ -63,10 +63,10 @@ class RecursiveWalker
         try {
             $this->validateAndSetDir();
         } catch (InvalidArgumentException $e) {
-            error_log($e->getMessage());
+            $this->displayMessage($e->getMessage());
             $this->initDir();
         } catch (ErrorException $e) {
-            error_log($e->getMessage());
+            $this->displayMessage($e->getMessage());
             $this->initDir();
         }
     }
@@ -109,7 +109,7 @@ class RecursiveWalker
                 try{
                     $this->processFile($itemPath);
                 } catch (TypeError $e) {
-                    error_log($e->getMessage());
+                    $this->displayMessage($e->getMessage());
                 }
 
             }
