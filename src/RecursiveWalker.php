@@ -16,8 +16,6 @@ class RecursiveWalker
 {
     /**
      * @var string
-     *
-     * we can use string type before vars since PHP 7.4
      */
     private $rootDir;
 
