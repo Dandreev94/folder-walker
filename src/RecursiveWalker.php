@@ -14,6 +14,8 @@ use TypeError;
  */
 class RecursiveWalker
 {
+    const DIALOG_LIMIT = 20;
+
     /**
      * @var string
      */
@@ -34,6 +36,11 @@ class RecursiveWalker
     private $sum = 0;
 
     /**
+     * @var int
+     */
+    private $dialogCounter = 0;
+
+    /**
      * The main method - entry point for app
      */
     public function walk()
@@ -48,6 +55,11 @@ class RecursiveWalker
 
     protected function initDir()
     {
+        $this->dialogCounter++;
+        if ($this->dialogCounter > self::DIALOG_LIMIT) {
+            exit("Stop abuse!\n");
+        }
+
         try {
             $this->validateAndSetDir();
         } catch (InvalidArgumentException $e) {
